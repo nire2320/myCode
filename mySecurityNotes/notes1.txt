@@ -1,0 +1,85 @@
+Preventative
+	Firewall
+	IPS
+	NGFW
+	Antivirus
+	Proxy
+	Web Content Filter
+	Malware Detonation Devices
+	DLP
+	NAC
+
+Detective
+	IDS
+	SIM/SIEM
+
+
+OSI
+	Layer 1 (Bits/phys)			<-- Hardware
+	Layer 2 (frames/datalink)	<-- Software
+	Layer 3 (Network)			<-- IP Addresses
+	Layer 4 (Transport)			<-- TCP/UDP Ports
+	Layer 5 (Session)			<-- HTTP/cookies
+	Layer 5 (Presentation)		<-- Returns
+	Layer 7 (application)		<-- Insanity!
+	Layer 8 (people)			<-- Social engineering
+	Layer 9 (management)		<-- Funding
+
+
+HTTP Exploitation leveraged
+	initial client-side exploit
+	delivery of payload
+	C2
+	data exfiltration
+
+CIS Cirtical Security Controls (CSC)
+	https://www.cisecurity.org/controls/cis-controls-list/
+
+	Basic CIS Controls
+	1. Inventory and Control of Hardware Assets
+	2. Inventory and Control of Software Assets
+	3. Continuous Vulnerability Management
+	4. Controlled Use of Administrative Privileges
+	5. Secure Configuration for Hardware and Software on Mobile Devices, Laptops, Workstations and Servers
+	6. Maintenance, Monitoring and Analysis of Audit Logs
+
+	Foundational CIS Controls
+	7. Email and Web Browser Protections
+	8. Malware Defenses
+	9. Limitation and Control of Network Ports, Protocols and Services
+	10. Data Recovery Capabilities
+	11. Secure Configuration for Network Devices, such as Firewalls, Routers and Switches
+	12. Boundary Defense
+	13. Data Protection
+	14. Controlled Access Based on the Need to Know
+	15. Wireless Access Control
+	16. Account Monitoring and Control
+
+	Organizational CIS Controls
+	17. Implement a Security Awareness and Training Program
+	18. Application Software Security
+	19. Incident Response and Management
+	20. Penetration Tests and Red Team Exercises
+
+
+Tactics Techniques Procedures (TTPs)
+Threat Intelligence
+
+
+Kill Chain Phases [1-7]
+
+	Recon--> Weaponization--> Delivery--> Exploitation--> Installation--> Command and Control--> Actions on Objectives\
+
+
+ATT&CK (Mitre's TTPs)
+
+
+
+**emphasis on PEOPLE and PROCESSES rather than PRODUCTS**
+
+SOCs provide :
+	detection
+	Auditing
+	Response
+	Operations/Maintenance
+
