@@ -1,0 +1,119 @@
+NSM - data in motion
+CSM - data at rest
+
+Continuous Diagnostics and Mitigation (CDM)
+
+Traditional methods don't really address bad actors already in the system!
+
+CSC 5 tenents :
+	Offense informs defense
+	Prioritization
+	Metrics
+	Continuous Monitoring
+	Automation
+
+
+Australian Signals Directorate (ASD) top 4 :
+	Application whitelisting
+	patch applications
+	patch operating systems
+	restrict admin privileges
+
+
+Winning CSM techniques :
+	build a defensible network
+	focus on critical data + systems
+	detect important changes
+	solve problems as they are discovered
+		- multiple small change requests work better than single large ones
+	focus on high-value events
+	when faced with large data sets, focus on outliers and automate as much as possible (Can also Classify network systems!)
+	Outbound "Denied" Firewall traffic gives a wealth of CSM information
+	Long tail analysis (you know this)
+	Configure DNS servers for more verbose logging!
+	Write a cron-job to pull router configuration nightly
+	Proxy, Proxy, Proxy!
+		- will kill direct malware C2 connections
+		- choke points
+		- can easily scan these logs (CSM) for entropy
+	Monitor SMTP for high volume traffic
+		- an account sends 250+ messages in 1 day, probably a compromised SPAM account now...
+
+
+
+Classification how to :
+	identify "high" systems and data
+		- should recieve more controls :
+			= Application whitelisting
+			= HIPS
+			= 2-factor auth
+	What systems are broken?
+		- Fix broken systems! Malware AND misconfigured systems will attempt incorrect network patterns
+	"Always be aware when your network changes in any meaningful way"
+
+
+reverse proxy!
+	- load balancing and canary information data
+
+
+
+
+C:\> Get-WinEvent -LogName security | Group-Object id -NoElement | sort count
+
+I stand on the backs of giants to see far...
+	use Vulnerability intelligence services to your advantage!
+		- Krebs
+		- Sans
+		- Mcafee
+		- Dell Secure Works
+		- Sophos
+		- Logrhythm
+		- Etc...
+
+
+If an org is dynamically assigning addresses using DHCP :
+	deploy dynamic host config protocol server logging
+	use this information to improve asset inventory
+	Even simple spreadsheets can help here
+	Methods available for network assets
+		- DHCP logs
+		- Switch CAM tables
+		- Active scanning (nmap)
+		- Passive scanning (nmap + shodan, p0f, PADS, PRADS)
+			= PADS : Passive Asset Database
+			= PRADS : Passive Real-Time Asset Database
+		- Existing asset inventory databases
+		- purchasing data
+
+p0f
+p0f
+p0f
+p0f
+p0f
+p0f
+p0f
+
+
+- SNMP is configured and used by assigning a version and community string (basically a password) on a particular device. Any decent router, switch or firewall should support it. You then use an application to query the device, say every 60 seconds, to obtain device statistics ie Interface bandwidth in use, CPU load etc.
+
+- Netflow is a different animal. Netfow exports flow information to an external collector.  Netflow will then give you flow information like "IP Address X used 2 megabits of HTTP traffic from IP address Y in the last 5 minutes"
+
+- Syslog is a service that network devices use to send syslog messages to an external syslog server. Messages you will see are things like "User X logged in from IP address X" or "Interface Y is down". You can configure  level (from 1 to 7) of messages you wish to have logged to the syslog server. 
+
+
+Security Content Automation Protocol (SCAP)
+
+C:\>mbsacli.exe : common admin vulnerabilities and missing security update detection
+
+
+
+
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+											...\RunOnce
+
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+											...\RunOnce
+
+HKLM\Software\Wow6432node\Microsoft\Windows\CurrentVersion\Run
+											...\RunOnce
+

@@ -103,8 +103,20 @@ gpedit.msc
 	sdelete
 	schtasks
 
+
 EventID 4688 - Newly created process (tremendous amount of volume)
 
+EventID 4720 - User account created
+EventID 4722 - User account enabled
+EventID 4724 - Attempt made to reset account password
+EventID 4738 - User account changed
 
+EventID 4738 - member added to security-enabled local-group
+
+Don't forget AppLocker events!
+8003 - exe or dll was allowed (butwould have been prevented)
+8004 - exe or dll was not allowed to run
+8006 - script or msi was allowed (but would have been prevented)
+8007 - script or msi was not allowed to run
 
 
