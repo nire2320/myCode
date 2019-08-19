@@ -1,0 +1,110 @@
+Application monitoring + whitelisting
+common secure configs
+expedited patching of applications + OSes
+Controlling admin privileges
+
+ADFS
+
+Desktops are more difficult to secure
+	- users are insane/evil/easier to reach
+
+supervisory control and data acquisition (SCADA)
+
+Patching is the most important security aspect of securing enterprises
+
+Patch Cycle :
+	Patch identification
+	possible patch testing
+	patch deployment
+	patch verification - vulnerability scanners help here
+
+iDay / ForeverDay vulnerabilities
+
+DISABLE SMBv1
+
+eliminate software that is not needed by the organization anymore
+
+3 Don't do's :
+	DON'T build a config of a modern system from scratch
+	DON'T deploy the hardest possible configuration/most hardcore
+	DON'T consider it done after you've finished/consider this a 1-off procecss
+
+CIS provides good benchmark baseline configurations
+Vendor's do too
+NSA does as well
+
+Monitor systems for configuration changes (diff)
+
+Enhanced Mitigation Experience Toolkit (MS EMET)
+
+Whitelisting (Sysmon)
+	Centralize events via your SIEM
+
+whitelisting applications allows us to look for deviation
+	prevent someoen from successfully executing a binary
+
+Zone.identifier in windows ADFS
+
+AppLocker
+	automatic creation of default rules
+	control which apps and files users can run
+
+Control Admin access
+	limit pass_the_hash
+		- NTLM network auth starts with hash rather than password
+		- no salts for LM or NT hashes
+		- windows credential editor
+		- msf psexec
+		- mimikatz
+	exploit with Windows Escalate Service Permissions  /service_permissions
+	Scrutinize the following in a system :
+		- allow/deny log on locally
+		- allow log on through rdp services
+		- deny access via network
+		- logon as a service
+
+Auto Start Extensibility Points (ASEP)
+	persistent applications
+	persistent evil
+
+mimikatz/dogz/yakz exploit
+
+Logging onto Windows System
+	Console
+	RDP
+	Service
+	Over network
+	Cached creds
+	etc..
+
+
+
+
+
+
+
+
+
+Turn on event monitoring
+==========================
+
+gpedit.msc
+	-> set comp configuration
+	-> enable feature Include cmd line in process creation event
+
+	search loong commands
+	rundll32.exe
+	csscript.exe
+	.vbs scripts
+	/temp/ folder
+	cmd.exe
+	whoami /priv
+	vssadmin
+	sdelete
+	schtasks
+
+EventID 4688 - Newly created process (tremendous amount of volume)
+
+
+
+

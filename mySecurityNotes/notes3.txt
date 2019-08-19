@@ -1,0 +1,97 @@
+Network Security Monitoring (NSM) != Continuous Security Monitoring (CSM)
+
+NSM
+	Data in motion
+	NIDS
+	Packets
+	Pipeline flow
+	Security Onion (best option, also free)
+		- comes with NIDS : Snort, Suricata, Bro; SGuil
+		- PRADS
+		- netsniff-ng
+		- SIEM (elsa)
+		- Wireshark, Network Miner, nmap, ngrep, etc...
+	Data Sources :
+		- Packet Data
+		- Flow Data
+		- Transaction Data
+		- Statistical Data
+		- Alert Data
+		- Correlated Data
+	A system can be as simple as a combined sensor + server
+	Better system is multiple sensors and a centralized server
+	Sensor Placement
+		- DMZ
+		- Internal
+		- External
+
+CSM
+	Data at rest
+	Log files
+	Registry Keys
+	Vulnerability assessment
+	Weekly scan of missed patches, patch when necessary
+
+Tao : Networking Security Monitoring
+
+Hunt Teams
+	Focus on People and Processes
+		- dont schedule things on Friday Afternoon for IT to deal with on the weekend! lol
+
+BRO
+	bro-cut user _agent uri
+	Analysis driven vs. Snort, Sourcefire, Suricata (signature-based)
+		- Signature-based is a form of blacklisting
+		- blacklisting ALWAYS fails (eventually)
+		- Ex.
+			= msf to create payload in Raw format
+			= convert Raw to .py script
+			= convert .py script to .exe
+			= bypasses most AVs (signature-based)
+
+
+Protocol-based
+	effective, but often false positives (misconfigured apps using TCP: SYN -> SYN/ACK -> ACK)
+	learning mode attempts to get around this
+		- what happens if device learns to ignore malicious traffic? (false negatives)
+		- what happens if device learns to alert inconspicuous traffic? (false positives again)
+
+
+(Alerts)(Flows)(Logs)(pcaps) :: (((DataCorrelation)((DevelopTheories))(ConstructTimelines))) :: (Report)
+
+Dirty word lists can be useful for cross-reference
+
+Magic numbers can identify DOS, .EXEs, etc...
+
+Use NTP to sync time across everything (two synchronized time sources)
+
+Detect and Track .EXEs
+
+
+SSL/TLS
+	Client Hello -> 
+	Server Hello + Cert <- 
+	Client Key Exchange ->
+	Client Finished ->
+	Server Finished <-
+	Encrypted data <-->
+
+x.509
+	popular form of public key certificate
+	CN : Common Name
+	O  : Organization
+	C  : Country Code
+	BRO can carave out some useful stuff
+
+
+
+
+TOOLS HERE :
+
+tcpdump
+wireshark/tshark
+bro
+suricata
+snort
+SIEM (arcsight, LR, etc...)
+

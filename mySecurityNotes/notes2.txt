@@ -1,0 +1,135 @@
+Prevent -> Detect -> Respond
+
+Attack Scenarios :
+
+	1. build wordlist -> dnsrecon -> burp suite SQLi -> fuzz injection (SQLMap) -> dump key data (exfil)
+		- missed by web application vulnerability scanner
+		- scenario does not involve patchable flaw
+
+	2. recon target employee (Dr. Gaius via recon-ng) -> Watering hole attack on Dr. Gaius visited site -> Gaius' infected computer establishes C2 back to us -> pivot through corporate system (access token abuse) -> exfil data
+		- exploits patchable flaw in client application
+		- outbound C2 leveraged for successful attack
+		- pivot + scan internal systems to get data exfil
+
+### Router based IPFIX/Netflow : 
+	Layer 3/4 information analysis
+	packet capture
+	Session based analysis
+		- timestamps
+		- SIP
+		- DIP
+		- ICMP type
+		- UDP/TP ports
+		- TCP flags
+		- Byte transfers
+	Great for APT information
+	Decent at filtering (blocking) packets
+	Bad for prevention
+
+APT -> Advanced Persistent Threat
+
+Look for persistent outbound threats to say, a foreign country
+	- can yield authority for hunting/investigation
+
+
+
+### Stateful Inspection Firewalls (SI Firewall) : 
+	basic/fast security screening
+	SI is deeper than Static Firewalls (can exam corresponding TCP: SYN/ACK tables for google response)
+	SIP Address filters
+		- blacklist (drop) SIPs that are bogus (Ingress Layer 3)
+			= Bogon list : commonly found as the source addresses of DDoS attacks
+			= RFC 1918 : Private internets
+			= Private internal address space
+		- whitelist (Egress Layer 4)
+
+allow any any -> Web Server TCP/80 TCP/443
+allow any any -> DNS Server UDP/53
+allow any any -> Mail Server TCP/25
+...
+deny any any -> any any
+
+
+
+### Web Application Firewalls :
+	WAFs require explicit, serious security knowledge of applications being protected
+	Can be both preventative and detective
+	Scaling can be an issue
+	Many times configured as reverse proxies
+	Could use Docker/kubernetes for leveraging scaling of WAFs in a large environment
+
+
+
+### NIDS
+	Implemented on routing switches
+	identify threats outside -> inside
+	externally focused nids will NOT detect pivoting attackers
+	Really only work with $TRUSTED devices, attacks originating inside a network are kind of difficult
+		- imagine trusted (infected) host to trusted (victim), IDS can't see this
+	Enable rapid response though 
+
+
+
+### NIPS
+	false positives on NIDS are an annoyance, on NIPS it's service outage!
+
+
+
+### NGFWs
+	Complement SI firewalls
+	Best at Layer 7 (overtly emphasized here)
+	Ex.
+		Facebook chat :
+		- SI firewall can block TCP/80 (overkill) or FB DIPs (statically, hard to scale)
+		- NGFWs can Block FB chat (still allow FB) and reserve chat for executives only
+	Cisco NGFW
+	OpenAppId (Cisco)
+		- integrates with snort
+	Great at blocking C2 sent via TCP 443/80
+
+
+
+### Malware Detonation Devices (MDDs, ATPrev, Automated Malware Analysis)
+	Takes files and render/executes them in advance of passing them off to the target
+	Sandbox environments
+	Behavioral Analysis machines
+	Could implement Cuckoo on Docker containers for scalable solution
+
+
+
+### Forward Proxies
+	Usually contain web content filtering
+	Primary purpose is to reduce risk associated with user accessing content
+	MIME type content filtering (.exe, .jar, doc, .pdf, etc..)
+	Splash proxies are cool (validate first use of website with user prompt)
+
+
+### Word Entropy
+	3i8ojqsj49.exe is probably malicious
+	notevil.exe could be considered more suspicious, attackers would obfuscate this (automagically)
+	freq.py -> entropy examination tool
+		- look at DNS names for signs of randomness
+		- cron job or task scheduler can make freq.py a simple task
+		- freq_server.py can be leveraged against ELK-based SIEMs
+	linux $ent can provide entropy insight as well
+
+
+### SIEM/SIM
+	Security Information and Event Mangement
+	enables rapid response and indrectly aid prevention
+	very detection based
+
+
+### Pcap devices
+	Leveraged as a second opinion (after we determine things)
+	Sort of a more in-depth look
+
+Honeypots
+VLAN ACLs - provide logically segmented internal networks
+	VACLs - Virtual access control lists
+	Should desktops be able to talk to other desktops directly? Probably not!
+	Good against Pivot prevention
+
+Indicators of Compromise (IoC)
+
+
