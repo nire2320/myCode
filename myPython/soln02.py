@@ -1,5 +1,5 @@
-num = raw_input("Give me a #: ")
-check = raw_input("Give me a modulo #: ")
+num = input("Give me a #: ")
+check = input("Give me a modulo #: ")
 
 if int(num) % int(check) == 0:
 	print("Divisible")

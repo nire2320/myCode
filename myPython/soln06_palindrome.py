@@ -1,4 +1,4 @@
-palin = raw_input("Give me a string (palindrome prefferable) : ")
+palin = input("Give me a string (palindrome prefferable) : ")
 
 if len(palin) % 2 == 0:
 	half = palin[0:len(palin)/2]

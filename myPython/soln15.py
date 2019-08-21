@@ -1,4 +1,4 @@
-user = raw_input("Give me a long string with multiple words : ")
+user = input("Give me a long string with multiple words : ")
 space = " "
 
 def reverseString(mString) : 

@@ -1,4 +1,4 @@
-num = raw_input("Give me a number: ")
+num = input("Give me a number: ")
 a = []
 
 for i in range(1, int(num)):

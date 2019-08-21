@@ -8,7 +8,7 @@ rand_3 = random.randint(0,9)
 rand_arr = [rand_0, rand_1, rand_2, rand_3]
 matching = [0, 0, 0, 0]
 
-user = raw_input("Give a random 4 digit guess for cows/bulls game : ")
+user = input("Give a random 4 digit guess for cows/bulls game : ")
 
 while sum(matching) < 8 :
 	i = 0
@@ -27,7 +27,7 @@ while sum(matching) < 8 :
 		i += 1
 
 	if sum(matching) < 8 :
-		user = raw_input(str(cows) + " cows, " + str(bulls) + " bulls\n")
+		user = input(str(cows) + " cows, " + str(bulls) + " bulls\n")
 
 print("You've got it! ANS:: " + str(rand_arr))
  

@@ -1,4 +1,4 @@
-user = raw_input("Give me # for fibonnaci sequence : ")
+user = input("Give me # for fibonnaci sequence : ")
 a = [0, 1]
 
 def fibb(number) :

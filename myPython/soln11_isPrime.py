@@ -1,4 +1,4 @@
-num = raw_input("Check Prime: ")
+num = input("Check Prime: ")
 
 def is_prime(mNum):
 	a = []

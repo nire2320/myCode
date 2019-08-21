@@ -1,6 +1,6 @@
 import random
 
-user = raw_input("Here's a password generator. Give me strong/medium/weak strength : ")
+user = input("Here's a password generator. Give me strong/medium/weak strength : ")
 
 def genPass(sPreference)
 	if sPreference == "strong" :

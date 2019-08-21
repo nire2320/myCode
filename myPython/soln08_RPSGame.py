@@ -2,7 +2,7 @@ import random
 
 i = 1
 while int(i) != 0:
-	user = raw_input("Give me rock/paper/scissors (1,2,3) : ")
+	user = input("Give me rock/paper/scissors (1,2,3) : ")
 	comp = random.randint(1,3)
 	
 	if comp ^ int(user) == 0:
@@ -12,4 +12,4 @@ while int(i) != 0:
 	elif comp ^ int(user) == 2:
 			print(str(user) + " beats " + str(comp) + " :: You win!")
 
-	i = raw_input("Play again? Yes = 1, No = 0 : \n")
+	i = input("Play again? Yes = 1, No = 0 : \n")
